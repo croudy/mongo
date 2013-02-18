@@ -1,0 +1,13 @@
+<?php
+$mongo = new Mongo("ni:27017");
+$db = $mongo->ban;
+$collection = $db->keitai;
+
+$where = array( 'body' => new MongoRegex("/ソフトバンク/") );
+
+$result = $collection->find( $where );
+$i=0;
+foreach( $result as $doc ){
+    var_dump($doc);
+}
+?>
