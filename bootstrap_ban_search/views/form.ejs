@@ -1,0 +1,10 @@
+<form method="get" action="/">
+  <p><label>number</label><input type="text" name="number" value="<%= query.number %>"></p>
+  <p><label>mail</label><input type="text" name="mail" value="<%= query.mail %>"></p>
+  <p><label>name</label><input type="text" name="name" value="<%= query.name %>"></p>
+  <p><label>date</label><input type="text" name="date" value="<%= query.date %>"></p>
+  <p><label>id</label><input type="text" name="id" value="<%= query.id %>"></p>
+  <p><label>body</label><input type="text" name="body" value="<%= query.body %>"></p>
+ <input type="submit" value="検索">
+ <input type="button" value="リセット" onClick="this.form.reset()">
+</form>

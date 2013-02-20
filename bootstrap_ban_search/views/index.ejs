@@ -1,0 +1,28 @@
+
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <ul class="nav">
+	    <li><a href="#">検索</a></li>
+  	    <li><a href="#">リンク2</a></li>
+  	    <li><a href="#">リンク3</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+    <% include form %>
+    <h1><%= title %></h1>
+    <ul>
+        <% items.forEach(function(item){ %>
+        <li><%= item.number %></li>
+        <li><%= item.mail %></li>
+        <li><%= item.name %></li>
+        <li><%= item.date %></li>
+        <li><%= item.id %></li>
+        <li><%= item.body %></li>
+        <br>
+        <% }) %>
+    </ul>
+</div>
