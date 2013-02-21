@@ -1,0 +1,8 @@
+<form class="form-horizontal">
+ <label>number</label>
+ <input type="text" name="number" class="input-small" placeholder="number" value="<%= query.number %>">
+ <input type="text" name="body" class="input-small" placeholder="body" value="<%= query.body %>">
+ <button type="reset" class="btn">リセット</button>
+ <button class="btn" type="submit">検索</button>
+</form>
+<hr>

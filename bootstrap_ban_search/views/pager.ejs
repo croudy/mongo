@@ -1,0 +1,24 @@
+<%
+    page = parseInt(query['page']);
+    next = page+1;
+    before = page-1;
+    if( before < 0 ) before = 0;
+    pager = "?";
+    for( var i in query){
+        //console.log(i+":"+query[i].length);
+        console.log(i+":"+query[i]);
+        if( i == 'page' ){
+            continue;
+        }
+        if( query[i] != "" ){
+            pager += i+"="+query[i]+"&";
+        }
+    }
+    next = pager + "page="+next;
+    before = pager + "page="+before;
+
+%>
+<ul class="pager">
+    <li><a href="<%= before %>">&laquo; PREV</a></li>
+    <li><a href="<%= next %>">NEXT &raquo;</a></li>
+</ul>

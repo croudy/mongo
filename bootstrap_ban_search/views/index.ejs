@@ -1,9 +1,8 @@
-
 <div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container">
       <ul class="nav">
-	    <li><a href="#">検索</a></li>
+	    <li><a href="./">検索</a></li>
   	    <li><a href="#">リンク2</a></li>
   	    <li><a href="#">リンク3</a></li>
       </ul>
@@ -14,15 +13,41 @@
 <div class="container">
     <% include form %>
     <h1><%= title %></h1>
+    <% 
+        /* bodyのキーワード強調 */
+        keyword = query.body;
+        replace_keyword = '<font color="red">'+keyword+'</font>';
+        //replace_keyword = '<em>'+keyword+'</em>';
+        reg = new RegExp(keyword,'gi');
+    %>
+
+    <%
+        //見つかった件数チェック
+        if( items.length == 0 ){
+    %>
+            <% include nothing %>
+    <%
+        }
+        //表示する件数があるとき
+        else{
+    %>
+
+    <% include pager %>
     <ul>
-        <% items.forEach(function(item){ %>
+    <% items.forEach(function(item){ %>
         <li><%= item.number %></li>
         <li><%= item.mail %></li>
         <li><%= item.name %></li>
         <li><%= item.date %></li>
         <li><%= item.id %></li>
-        <li><%= item.body %></li>
+        <% if(  keyword != ""){ %>
+            <li><%- item.body.replace(reg, replace_keyword) %></li>
+        <% }else{ %> 
+            <li><%- item.body %></li>
+        <% } %> 
         <br>
-        <% }) %>
+    <% }) %>
     </ul>
+    <% include pager %>
 </div>
+<% } %>

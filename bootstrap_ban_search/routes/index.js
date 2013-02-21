@@ -17,6 +17,9 @@ var keyword = {
   "id"     : {"type" : "like"},
   "body"   : {"type" : "like"}
 } ;
+var page = 0;
+var skip = 0;
+var limit = 10;
 
 exports.index = function(req, res){
   var where = new Object();
@@ -38,10 +41,16 @@ exports.index = function(req, res){
   console.log(req.query);
   console.log('where');
   console.log(where);
-  keitai.find( where ,{}, { limit:10000, sort:{"_id":1} }, function(err, items){
-  console.log('find where');
-    console.log(where);
-    console.log(items);
-    res.render('index', { title: '検索', query: req.query, items: items })
+  console.log("index.page="+req.query.page);
+
+  if( req.query.page == undefined ){
+    req.query.page = 0; 
+  }
+  skip = req.query.page * limit;
+  page = req.query.page;
+
+  keitai.find( where ,{}, { skip:skip, limit:10, sort:{"_id":1} }, function(err, items){
+    //console.log(items);
+    res.render('index', { title: '検索', query: req.query, items: items, page: page })
   });
 };
