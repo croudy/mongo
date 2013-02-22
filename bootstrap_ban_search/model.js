@@ -10,5 +10,4 @@ var keitai = new mongoose.Schema({
     , body   : String
 });
 
-
 exports.keitai = db.model('keitai', keitai);
