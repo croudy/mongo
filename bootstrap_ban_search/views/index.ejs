@@ -36,11 +36,8 @@
     <% items.forEach(function(item){ %>
     <table>
         <tbody>
-        <tr> <td><%= item.number %></td> </tr>
-        <tr> <td><%= item.mail %></td> </tr>
-        <tr> <td><%= item.name %></td> </tr>
-        <tr> <td><%= item.date %></td> </tr>
-        <tr> <td><%= item.id %></td> </tr>
+        <tr> <td><%= item.number %>&nbsp;<%= item.mail %>&nbsp;<%= item.name %></td> </tr>
+        <tr> <td><%= item.date %>&nbsp; <%= item.id %></td> </tr>
         <% if(  keyword != ""){ %>
             <tr> <td><%- item.body.replace(reg, replace_keyword) %></td> </tr>
         <% }else{ %> 
