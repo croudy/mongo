@@ -33,23 +33,21 @@
     %>
 
     <% include pager %>
+    <ul>
     <% items.forEach(function(item){ %>
-    <table>
-        <tbody>
-        <tr> <td><%= item.number %></td> </tr>
-        <tr> <td><%= item.mail %></td> </tr>
-        <tr> <td><%= item.name %></td> </tr>
-        <tr> <td><%= item.date %></td> </tr>
-        <tr> <td><%= item.id %></td> </tr>
+        <li><%= item.number %></li>
+        <li><%= item.mail %></li>
+        <li><%= item.name %></li>
+        <li><%= item.date %></li>
+        <li><%= item.id %></li>
         <% if(  keyword != ""){ %>
-            <tr> <td><%- item.body.replace(reg, replace_keyword) %></td> </tr>
+            <li><%- item.body.replace(reg, replace_keyword) %></li>
         <% }else{ %> 
-            <tr> <td><%- item.body %></td> </tr>
+            <li><%- item.body %></li>
         <% } %> 
-        </tbody>
-    </table>
-    <hr>
+        <br>
     <% }) %>
+    </ul>
     <% include pager %>
 </div>
 <% } %>

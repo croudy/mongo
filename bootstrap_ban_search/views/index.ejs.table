@@ -47,8 +47,7 @@
             <tr> <td><%- item.body %></td> </tr>
         <% } %> 
         </tbody>
-    </table>
-    <hr>
+        </table>
     <% }) %>
     <% include pager %>
 </div>
